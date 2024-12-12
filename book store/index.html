@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Bookstore</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+    
+        /* Top Frame Styles */
+        #top-frame {
+            background-color: #007bff;
+            padding: 15px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+    
+        #top-frame img {
+            height: 40px; /* Adjust based on logo size */
+            width: auto;
+        }
+    
+        #top-frame h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+    
+        #top-frame p {
+            margin: 10px 0 0 0;
+        }
+    
+        #top-frame a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+    
+        #top-frame a:hover {
+            color: #f1f1f1;
+        }
+    
+        /* Main Container Styles */
+        #main-container {
+            display: flex;
+            height: calc(100vh - 80px); /* Account for top frame height */
+            padding: 20px;
+            background-color: #f7f7f7;
+        }
+    
+        /* Left Frame Styles */
+        #left-frame {
+            width: 25%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-right: 20px;
+        }
+    
+        #left-frame h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #333;
+            font-weight: bold;
+        }
+    
+        #left-frame ul {
+            list-style-type: none;
+            padding: 0;
+        }
+    
+        #left-frame li {
+            margin-bottom: 15px;
+        }
+    
+        #left-frame a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+    
+        #left-frame a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+    
+        /* Right Frame Styles */
+        #right-frame {
+            flex-grow: 1;
+            border: none;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+    
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 8px;
+        }
+    
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #main-container {
+                flex-direction: column;
+                padding: 10px;
+            }
+    
+            #left-frame {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+    
+            iframe {
+                height: 80vh;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Frame -->
+    <div id="top-frame">
+        <img src="logo.png" alt="Logo">
+        <h1>Online Bookstore</h1>
+        <p>
+            <a href="description.html" target="right-frame">Home</a>
+            <a href="login.html" target="right-frame">Login</a>
+            <a href="register.html" target="right-frame">Register</a>
+            <a href="catalogue.html" target="right-frame">Catalogue</a>
+            <a href="cart.html" target="right-frame">Cart</a>
+        </p>
+    </div>
+
+    <!-- Main Container -->
+    <div id="main-container">
+        <!-- Left Frame -->
+        <div id="left-frame">
+            <h3>Categories</h3>
+            <ul>
+                <li><a href="cse_books.html" target="right-frame">CSE Books</a></li>
+                <li><a href="ece_books.html" target="right-frame">ECE Books</a></li>
+                <li><a href="mech_books.html" target="right-frame">Mechanical Books</a></li>
+                <li><a href="civil_books.html" target="right-frame">Civil Books</a></li>
+            </ul>
+        </div>
+
+        <!-- Right Frame (Iframe) -->
+        <iframe id="right-frame" name="right-frame" width="100%" height="100%" src="description.html">
+        </iframe>
+    </div>
+
+</body>
+</html>

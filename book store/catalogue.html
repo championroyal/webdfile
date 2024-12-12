@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogue</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #f8f9fa;
+        }
+        button {
+            padding: 6px 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        img {
+            width: 50px;
+            height: 75px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Catalogue</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Book Cover</th>
+                <th>Book Name</th>
+                <th>Author</th>
+                <th>Publisher</th>
+                <th>Price</th>
+                <th>Add to Cart</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img src="book1.png" alt="Book 1"></td>
+                <td>Book 1</td>
+                <td>Author 1</td>
+                <td>Publisher 1</td>
+                <td>$20.00</td>
+                <td><button onclick="addToCart('Book 1', 'Author 1', 'Publisher 1', '$20.00', 'book1.png')">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td><img src="book2.png" alt="Book 2"></td>
+                <td>Book 2</td>
+                <td>Author 2</td>
+                <td>Publisher 2</td>
+                <td>$25.00</td>
+                <td><button onclick="addToCart('Book 2', 'Author 2', 'Publisher 2', '$25.00', 'book2.png')">Add to Cart</button></td>
+            </tr>
+            <!-- Add more books as needed -->
+        </tbody>
+    </table>
+
+    <script>
+        function addToCart(bookName, author, publisher, price, image) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];  // Retrieve cart items from localStorage
+            cart.push({ name: bookName, author: author, publisher: publisher, price: price, image: image });  // Add the selected item
+            localStorage.setItem('cart', JSON.stringify(cart));  // Save the updated cart to localStorage
+            alert(bookName + " has been added to your cart!");
+        }
+    </script>
+
+</body>
+</html>

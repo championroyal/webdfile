@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+    
+        div {
+            width: 50%;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+    
+        label {
+            font-size: 16px;
+            color: #333;
+        }
+    
+        input[type="text"], input[type="email"], input[type="password"], input[type="date"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+    
+        input[type="radio"], input[type="checkbox"] {
+            margin-right: 10px;
+        }
+    
+        .form-section {
+            margin-bottom: 20px;
+        }
+    
+        textarea {
+            resize: vertical;
+        }
+    
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+    
+        button:hover {
+            background-color: #45a049;
+        }
+    
+        .error-message {
+            color: red;
+            font-size: 14px;
+        }
+    
+        .form-section {
+            margin-bottom: 20px;
+        }
+    
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .radio-group {
+            display: flex;
+            justify-content: space-around;
+        }
+    </style>
+    
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h2>Register</h2>
+        <form action="#" method="post" id="register-form" onsubmit="return validateForm()">
+            <label for="fullname">Full Name:</label><br>
+            <input type="text" id="fullname" name="fullname" required><br><br>
+    
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+    
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" required><br><br>
+    
+            <label for="confirm-password">Confirm Password:</label><br>
+            <input type="password" id="confirm-password" name="confirm-password" required><br><br>
+    
+            <label for="phone">Phone Number:</label><br>
+            <input type="text" id="phone" name="phone" required><br><br>
+    
+            <label>Sex:</label><br>
+            <input type="radio" id="male" name="sex" value="male">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="sex" value="female">
+            <label for="female">Female</label><br><br>
+    
+            <label for="dob">Date of Birth:</label><br>
+            <input type="date" id="dob" name="dob" required><br><br>
+    
+            <label for="languages">Languages Known:</label><br>
+            <input type="checkbox" id="english" name="languages" value="English">
+            <label for="english">English</label>
+            <input type="checkbox" id="telugu" name="languages" value="Telugu">
+            <label for="telugu">Telugu</label>
+            <input type="checkbox" id="hindi" name="languages" value="Hindi">
+            <label for="hindi">Hindi</label>
+            <input type="checkbox" id="tamil" name="languages" value="Tamil">
+            <label for="tamil">Tamil</label><br><br>
+    
+            <label for="address">Address:</label><br>
+            <textarea id="address" name="address" rows="4" required></textarea><br><br>
+    
+            <button type="submit">Register</button>
+        </form>
+    </div>
+    
+    <script>
+        function validateForm() {
+            // Validate Full Name: Should contain alphabets and be at least 6 characters
+            var fullname = document.getElementById('fullname').value;
+            var namePattern = /^[A-Za-z\s]+$/;
+            if (fullname.length < 6 || !namePattern.test(fullname)) {
+                alert("Full Name must contain only alphabets and be at least 6 characters.");
+                return false;
+            }
+    
+            // Validate Email: Should follow standard email pattern
+            var email = document.getElementById('email').value;
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address (e.g., name@domain.com).");
+                return false;
+            }
+    
+            // Validate Password: Should be at least 6 characters long
+            var password = document.getElementById('password').value;
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long.");
+                return false;
+            }
+    
+            // Validate Confirm Password: Should match the Password
+            var confirmPassword = document.getElementById('confirm-password').value;
+            if (password !== confirmPassword) {
+                alert("Password and Confirm Password must match.");
+                return false;
+            }
+    
+            // Validate Phone Number: Should contain exactly 10 digits
+            var phone = document.getElementById('phone').value;
+            var phonePattern = /^\d{10}$/;
+            if (!phonePattern.test(phone)) {
+                alert("Phone number must contain exactly 10 digits.");
+                return false;
+            }
+    
+            // Validate Sex: Should be selected
+            var sex = document.querySelector('input[name="sex"]:checked');
+            if (!sex) {
+                alert("Please select your sex.");
+                return false;
+            }
+    
+            // Validate Address: Should not be empty
+            var address = document.getElementById('address').value;
+            if (address.trim() === "") {
+                alert("Please provide your address.");
+                return false;
+            }
+    
+            // If all validations pass, return true to submit the form
+            return true;
+        }
+    </script>
+    
+    
+</body>
+</html>
